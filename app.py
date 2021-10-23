@@ -11,8 +11,9 @@ def home():
 
 def Submit(): 
     if request.method == 'POST':
-        numbers = [int(x) for x in request.form.values()]
-        return  render_template("index.html",text = sum(numbers))
+        numbers = [s for x in request.form.values()] 
+        name = numbers[0] + " " + numbers[1]
+        return  render_template("index.html",text = name)
     
 if __name__=="__main__": 
     app.run(debug=True)
